@@ -34,6 +34,8 @@ NSArray *getProductNames(NSDictionary *sensors) {
     IOHIDEventSystemClientSetMatching(system, (__bridge CFDictionaryRef)sensors);
     NSArray *matchingsrvs = (__bridge NSArray *)IOHIDEventSystemClientCopyServices(system);
 
+    fprintf(stderr, "%p\n", matchingsrvs);
+
     long            count = [matchingsrvs count];
     NSMutableArray  *array = [[NSMutableArray alloc] init];
 
@@ -60,6 +62,8 @@ NSArray *getThermalValues(NSDictionary *sensors) {
 
     IOHIDEventSystemClientSetMatching(system, (__bridge CFDictionaryRef)sensors);
     NSArray *matchingsrvs = (__bridge NSArray *)IOHIDEventSystemClientCopyServices(system);
+
+    fprintf(stderr, "%p\n", matchingsrvs);
 
     long            count = [matchingsrvs count];
     NSMutableArray  *array = [[NSMutableArray alloc] init];
