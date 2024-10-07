@@ -3,6 +3,7 @@
 package sensors
 
 import (
+	"context"
 	"fmt"
 	"testing"
 )
@@ -18,4 +19,9 @@ func TestTemperatureStat_String(t *testing.T) {
 	if s != fmt.Sprintf("%v", v) {
 		t.Errorf("TemperatureStat string is invalid, %v", fmt.Sprintf("%v", v))
 	}
+}
+
+func TestTemperatures(t *testing.T) {
+	// make sure it does not segfault
+	TemperaturesWithContext(context.TODO())
 }
